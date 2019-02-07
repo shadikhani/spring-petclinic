@@ -50,17 +50,14 @@ import org.springframework.samples.petclinic.visit.Visit;
 @Table(name = "pets")
 public class Pet extends NamedEntity {
 
-    @NotEmpty
     @Column(name = "birth_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
-    @NotEmpty
     @ManyToOne
     @JoinColumn(name = "type_id")
     private PetType type;
 
-    @NotEmpty
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
@@ -106,7 +103,7 @@ public class Pet extends NamedEntity {
     public List<Visit> getVisits() {
         List<Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
         PropertyComparator.sort(sortedVisits,
-                new MutableSortDefinition("date", false, false));
+            new MutableSortDefinition("date", false, false));
         return Collections.unmodifiableList(sortedVisits);
     }
 
