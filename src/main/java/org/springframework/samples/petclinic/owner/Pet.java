@@ -31,6 +31,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
@@ -49,14 +50,17 @@ import org.springframework.samples.petclinic.visit.Visit;
 @Table(name = "pets")
 public class Pet extends NamedEntity {
 
+    @NotEmpty
     @Column(name = "birth_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
+    @NotEmpty
     @ManyToOne
     @JoinColumn(name = "type_id")
     private PetType type;
 
+    @NotEmpty
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
