@@ -13,7 +13,6 @@ import org.springframework.samples.petclinic.vet.VetView;
 
 import java.util.Objects;
 
-
 public class MainLayout extends VerticalLayout implements RouterLayout {
 
     private Div centerContent;

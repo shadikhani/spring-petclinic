@@ -24,7 +24,6 @@ import java.util.List;
 
 
 @Route(value = "AddPet", layout = MainLayout.class)
-
 public class PetView extends VerticalLayout implements HasUrlParameter<Integer> {
 
     private Div header;

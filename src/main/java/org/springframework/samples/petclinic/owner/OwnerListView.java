@@ -8,14 +8,12 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.renderer.NativeButtonRenderer;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.spring.annotation.SpringComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.MainLayout;
 
 import java.util.Collection;
 
 @Route(value = "FindOwners", layout = MainLayout.class)
-@SpringComponent
 public class OwnerListView extends VerticalLayout {
     private final OwnerService ownerService;
     private Button addButton;

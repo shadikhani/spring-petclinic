@@ -34,7 +34,6 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
     private Owner owner = new Owner();
     private final OwnerService ownerService;
     private Owner findOwner;
-    //private Integer parameterValue;
 
 
     public OwnerFormView(@Autowired OwnerService ownerService) {
@@ -67,7 +66,6 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
 
     @Override
     public void setParameter(BeforeEvent beforeEvent, @OptionalParameter Integer id) {
-        //parameterValue = id;
 
         if (id == null) {
             save.setText("Save");
@@ -110,6 +108,4 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
         city.setReadOnly(isEnabled);
         telephone.setReadOnly(isEnabled);
     }
-
-
 }
