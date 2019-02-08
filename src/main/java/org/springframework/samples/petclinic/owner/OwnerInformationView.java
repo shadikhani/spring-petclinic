@@ -40,7 +40,6 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
     private Button editOwnerButton;
     private final OwnerService ownerService;
     private Button addPetButton;
-    //private Owner owner;
     private final VisitService visitService;
     private BeanValidationBinder<Visit> visitBinder;
     private VerticalLayout petsLayout;
@@ -61,16 +60,7 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
         telephone = new TextField("Telephone");
         telephone.setReadOnly(true);
         editOwnerButton = new Button("Edit Owner");
-//        editOwnerButton.addClickListener(event -> {
-//            Integer ownerId = owner.getId();
-//            getUI().get().navigate(OwnerFormView.class, ownerId);
-//        });
-
         addPetButton = new Button("Add New Pet");
-//        addPetButton.addClickListener(event -> {
-//            Integer ownerId = owner.getId();
-//            getUI().get().navigate("AddPet", QueryParameters.simple(Collections.singletonMap("owner-id", ownerId.toString())));
-//        });
 
         HorizontalLayout horizontalLayout = new HorizontalLayout(editOwnerButton, addPetButton);
 
@@ -86,7 +76,6 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
 
     @Override
     public void setParameter(BeforeEvent beforeEvent, Integer ownerId) {
-//        sentOwnerId = ownerId;
 
         Owner owner = ownerService.findById(ownerId);
         binder.readBean(owner);

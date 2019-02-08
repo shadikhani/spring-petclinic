@@ -53,6 +53,7 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
     @Override
     public void showRouterLayoutContent(HasElement content) {
         if (content != null) {
+            centerContent.removeAll();
             centerContent.getElement().appendChild(Objects.requireNonNull(content.getElement()));
         }
 
