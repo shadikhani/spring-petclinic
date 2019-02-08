@@ -141,29 +141,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--<executions>-->
-                <!--<execution>-->
-                <!--&lt;!&ndash; Spring Boot Actuator displays build-related information-->
-                <!--if a META-INF/build-info.properties file is present &ndash;&gt;-->
-                <!--<goals>-->
-                <!--<goal>build-info</goal>-->
-                <!--</goals>-->
-                <!--<configuration>-->
-                <!--<additionalProperties>-->
-                <!--<encoding.source>-->
-                <!--${project.build.sourceEncoding}-->
-                <!--</encoding.source>-->
-                <!--<encoding.reporting>-->
-                <!--${project.reporting.outputEncoding}-->
-                <!--</encoding.reporting>-->
-                <!--<java.source>${maven.compiler.source}-->
-                <!--</java.source>-->
-                <!--<java.target>${maven.compiler.target}-->
-                <!--</java.target>-->
-                <!--</additionalProperties>-->
-                <!--</configuration>-->
-                <!--</execution>-->
-                <!--</executions>-->
+
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -208,43 +186,7 @@
                 </configuration>
             </plugin>
 
-       <!--     <plugin>
-                <groupId>ro.isdc.wro4j</groupId>
-                <artifactId>wro4j-maven-plugin</artifactId>
-                <version>${wro4j.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                  <configuration>
-                      <wroManagerFactory>
-                          ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory
-                      </wroManagerFactory>
-                      <cssDestinationFolder>
-                          ${project.build.directory}/classes/static/resources/css
-                      </cssDestinationFolder>
-                   <wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
-                       <extraConfigFile>${basedir}/src/main/wro/wro.properties
-                       </extraConfigFile>
-                    <contextFolder>${basedir}/src/main/less</contextFolder>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.webjars</groupId>
-                        <artifactId>bootstrap</artifactId>
-                        <version>${webjars-bootstrap.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.mockito</groupId>
-                        <artifactId>mockito-core</artifactId>
-                        <version>${mockito.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin> -->
+
         </plugins>
     </build>
 
@@ -257,10 +199,6 @@
     </licenses>
 
     <repositories>
-        <repository>
-            <id>vaadin-prereleases</id>
-            <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </repository>
         <!-- Repository used by many Vaadin add-ons -->
         <repository>
             <id>Vaadin Directory</id>
@@ -292,11 +230,7 @@
     </repositories>
 
     <pluginRepositories>
-        <!-- Repository needed for prerelease versions of Vaadin -->
-        <pluginRepository>
-            <id>vaadin-prereleases</id>
-            <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </pluginRepository>
+
         <!-- Repository needed for the snapshot versions of Vaadin -->
         <pluginRepository>
             <id>vaadin-snapshots</id>
