@@ -22,7 +22,7 @@ import org.springframework.samples.petclinic.visit.VisitService;
 import java.util.Collections;
 import java.util.List;
 
-@Route(value = "OwnerInformationView", layout = MainLayout.class)
+@Route(value = "owner-information", layout = MainLayout.class)
 public class OwnerInformationView extends VerticalLayout implements HasUrlParameter<Integer> {
 
     private Div header;
@@ -50,7 +50,6 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
         this.ownerService = ownerService;
         this.visitService = visitService;
 
-
         name = new TextField("Name");
         name.setReadOnly(true);
         address = new TextField("Address");
@@ -71,7 +70,6 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
         petsLayout = new VerticalLayout();
 
         add(name, address, city, telephone, horizontalLayout, petsLayout);
-
     }
 
     @Override
@@ -119,7 +117,7 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
             Grid.Column<Visit> descriptionColumn = grid.addColumn(Visit::getDescription).setHeader("Description");
 
             grid.setItems(pet.getVisits());
-            Button editPetbutton = new Button("Edit Pet", event -> {
+            Button editPetButton = new Button("Edit Pet", event -> {
                 Integer petId = pet.getId();
                 getUI().get().navigate(PetView.class, petId);
             });
@@ -130,7 +128,7 @@ public class OwnerInformationView extends VerticalLayout implements HasUrlParame
             });
 
             HorizontalLayout visitButtonsHorizontalLayout = new HorizontalLayout();
-            visitButtonsHorizontalLayout.add(editPetbutton, addVisitButton);
+            visitButtonsHorizontalLayout.add(editPetButton, addVisitButton);
 
             gridVerticalLayout.add(grid, visitButtonsHorizontalLayout);
 

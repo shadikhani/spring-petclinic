@@ -20,7 +20,7 @@ import org.springframework.samples.petclinic.MainLayout;
 import java.util.List;
 
 
-@Route(value = "AddOwner", layout = MainLayout.class)
+@Route(value = "owner-form", layout = MainLayout.class)
 public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Integer> {
 
     private Div header;
@@ -31,7 +31,7 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
     private TextField telephone;
     private BeanValidationBinder<Owner> binder;
     private Button save;
-    private Owner owner = new Owner();
+    private Owner owner;
     private final OwnerService ownerService;
     private Owner findOwner;
 
@@ -68,6 +68,7 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
     public void setParameter(BeforeEvent beforeEvent, @OptionalParameter Integer id) {
 
         if (id == null) {
+            owner = new Owner();
             save.setText("Save");
             save.addClickListener(event -> {
                 try {
@@ -90,7 +91,7 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
 
         save.addClickListener(event -> {
 
-            owner = ownerService.findById(id);
+//            owner = ownerService.findById(id);
             try {
                 binder.writeBean(owner);
                 ownerService.save(owner);

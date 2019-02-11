@@ -24,7 +24,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-@Route(value = "visitView", layout = MainLayout.class)
+@Route(value = "visit", layout = MainLayout.class)
 public class VisitView extends VerticalLayout implements HasUrlParameter<Integer> {
     private final VisitService visitService;
     private final PetService petService;

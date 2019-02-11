@@ -16,6 +16,4 @@ public class VetService {
     public Collection<Vet> fetchAll(){
         return vets.findAll();
     }
-
-
 }

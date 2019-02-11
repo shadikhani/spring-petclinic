@@ -13,7 +13,7 @@ import org.springframework.samples.petclinic.MainLayout;
 
 import java.util.Collection;
 
-@Route(value = "FindOwners", layout = MainLayout.class)
+@Route(value = "owner-list", layout = MainLayout.class)
 public class OwnerListView extends VerticalLayout {
     private final OwnerService ownerService;
     private Button addButton;

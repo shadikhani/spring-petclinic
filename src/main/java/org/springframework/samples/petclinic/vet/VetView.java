@@ -6,7 +6,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.MainLayout;
 
-@Route(value ="Veterinarians", layout = MainLayout.class)
+@Route(value ="vet", layout = MainLayout.class)
 public class VetView extends VerticalLayout {
 
     private final VetService service;

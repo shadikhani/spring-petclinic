@@ -23,7 +23,7 @@ import org.springframework.samples.petclinic.MainLayout;
 import java.util.List;
 
 
-@Route(value = "AddPet", layout = MainLayout.class)
+@Route(value = "pet", layout = MainLayout.class)
 public class PetView extends VerticalLayout implements HasUrlParameter<Integer> {
 
     private Div header;

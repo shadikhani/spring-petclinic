@@ -20,19 +20,19 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
     public MainLayout() {
 
         setSizeFull();
-        Tab tab1 = new Tab("Home");
-        Tab tab2 = new Tab("Veterinarians");
-        Tab tab3 = new Tab("Find Owners");
+        Tab homeTab = new Tab("Home");
+        Tab veterinariansTab = new Tab("Veterinarians");
+        Tab findOwnersTab = new Tab("Find Owners");
 
-        Tabs tabs = new Tabs(tab1, tab2, tab3);
+        Tabs tabs = new Tabs(homeTab, veterinariansTab, findOwnersTab);
 
         tabs.addSelectedChangeListener(event -> {
 
-            if (tabs.getSelectedTab().getLabel().equals("Home")) {
+            if (tabs.getSelectedTab() == homeTab) {
                 getUI().get().navigate(HomeView.class);
-            } else if (tabs.getSelectedTab().getLabel().equals("Veterinarians")) {
+            } else if (tabs.getSelectedTab() == veterinariansTab) {
                 getUI().get().navigate(VetView.class);
-            } else if (tabs.getSelectedTab().getLabel().equals("Find Owners")) {
+            } else if (tabs.getSelectedTab() == findOwnersTab) {
                 getUI().get().navigate(OwnerListView.class);
             }
         });
