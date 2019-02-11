@@ -7,36 +7,36 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.RouterLayout;
-import com.vaadin.flow.router.RouterLink;
 import org.springframework.samples.petclinic.owner.OwnerListView;
 import org.springframework.samples.petclinic.vet.VetView;
 
-import java.util.Objects;
+import java.util.*;
 
 public class MainLayout extends VerticalLayout implements RouterLayout {
 
     private Div centerContent;
 
 
-
     public MainLayout() {
 
         setSizeFull();
-        Tabs tabs = new Tabs();
+        Tab tab1 = new Tab("Home");
+        Tab tab2 = new Tab("Veterinarians");
+        Tab tab3 = new Tab("Find Owners");
 
-        Tab home = new Tab();
-        RouterLink routerLink = new RouterLink("Home", HomeView.class);
-        home.add(routerLink);
+        Tabs tabs = new Tabs(tab1, tab2, tab3);
 
-        Tab vet = new Tab();
-        RouterLink vetRouterLink = new RouterLink("Veterinarians", VetView.class);
-        vet.add(vetRouterLink);
+        tabs.addSelectedChangeListener(event -> {
 
-        Tab owner = new Tab();
-        RouterLink ownerRouterLink = new RouterLink("Find Owners", OwnerListView.class);
-        owner.add(ownerRouterLink);
+            if (tabs.getSelectedTab().getLabel().equals("Home")) {
+                getUI().get().navigate(HomeView.class);
+            } else if (tabs.getSelectedTab().getLabel().equals("Veterinarians")) {
+                getUI().get().navigate(VetView.class);
+            } else if (tabs.getSelectedTab().getLabel().equals("Find Owners")) {
+                getUI().get().navigate(OwnerListView.class);
+            }
+        });
 
-        tabs.add(home, owner,vet);
         add(tabs);
 
         centerContent = new Div();
@@ -55,6 +55,5 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
             centerContent.removeAll();
             centerContent.getElement().appendChild(Objects.requireNonNull(content.getElement()));
         }
-
     }
 }
