@@ -90,8 +90,7 @@ public class OwnerFormView extends VerticalLayout implements HasUrlParameter<Int
         save.setText("Update Owner");
 
         save.addClickListener(event -> {
-
-//            owner = ownerService.findById(id);
+            
             try {
                 binder.writeBean(owner);
                 ownerService.save(owner);
